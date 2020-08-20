@@ -4,7 +4,7 @@
   tasks:
     - name: Create keys
       openssh_keypair: 
-        path: 'home/mosipuser/.ssh/id_rsa'
+        path: '/home/mosipuser/.ssh/id_rsa'
       become: yes
 
     - name: Update authorized keys
