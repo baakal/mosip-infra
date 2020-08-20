@@ -3,22 +3,25 @@
     - {role: packages/epel, tags: [epel]}
     - {role: nginx, when: site.ssl.get_certificate == true, tags: [nginx]} 
     - {role: letsencrypt, when: site.ssl.get_certificate == true, tags: [letsencrypt]}
-    
+
   tasks: 
     - name: Ensure directory exists for local self-signed TLS certs.
       file:
         path: /etc/letsencrypt/live/{{ sandbox_domain_name }}
         state: directory
+      become: yes
 
     - name: Generate an OpenSSL private key.
       openssl_privatekey:
         path: /etc/letsencrypt/live/{{ sandbox_domain_name }}/privkey.pem
-
+      become: yes
+    
     - name: Generate an OpenSSL CSR.
       openssl_csr:
         path: /etc/ssl/private/{{ sandbox_domain_name }}.csr
         privatekey_path: /etc/letsencrypt/live/{{ sandbox_domain_name }}/privkey.pem
         common_name: "{{ sandbox_domain_name }}"
+      become: yes
 
     - name: Generate a Self Signed OpenSSL certificate.
       openssl_certificate:
@@ -26,3 +29,4 @@
         privatekey_path: /etc/letsencrypt/live/{{ sandbox_domain_name }}/privkey.pem
         csr_path: /etc/ssl/private/{{ sandbox_domain_name }}.csr
         provider: selfsigned
+      become: yes
