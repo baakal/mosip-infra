@@ -1,4 +1,9 @@
 - hosts: console
+  roles:
+    - {role: packages/epel, tags: [epel]}
+    - {role: nginx, when: site.ssl.get_certificate == true, tags: [nginx]} 
+    - {role: letsencrypt, when: site.ssl.get_certificate == true, tags: [letsencrypt]}
+    
   tasks: 
     - name: Ensure directory exists for local self-signed TLS certs.
       file:
