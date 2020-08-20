@@ -9,7 +9,7 @@
 
     - name: Update authorized keys
       authorized_key:
-        user: 'root'
+        user: 'mosipuser'
         state: present
         key: '{{lookup("file","/home/mosipuser/.ssh/id_rsa.pub")}}' 
       become: yes
