@@ -10,7 +10,7 @@ charts_root: '{{install_root}}/helm/charts'  # Helm charts root
 helm_cli_path: '{{user_home}}/bin'  # This path chosen as it is included in default $PATH in Centos 7.7
 artifactory_url: http://104.211.246.17:8040
 
-sandbox_domain_name: mosip.sandbox.net
+sandbox_domain_name: mosip.sandbox.et
 site:
   sandbox_public_url: 'https://{{sandbox_domain_name}}'
   ssl:
