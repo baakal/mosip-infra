@@ -1,7 +1,9 @@
-192.168.137.96 console.sb  
-192.168.137.97 dmzmaster.sb    
-192.168.137.98 dmzworker0.sb   
-192.168.137.99 mzmaster.sb 
+127.0.0.1       localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1             localhost localhost.localdomain localhost4 localhost4.localdomain4
+192.168.137.96  console.sb  
+192.168.137.97  dmzmaster.sb    
+192.168.137.98  dmzworker0.sb   
+192.168.137.99  mzmaster.sb 
 192.168.137.100 mzworker0.sb    
 192.168.137.101 mzworker1.sb    
 192.168.137.102 mzworker2.sb    
